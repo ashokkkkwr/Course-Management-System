@@ -12,7 +12,6 @@ const middleWare=(app:Application)=>{
             methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT', 'OPTIONS'],
             allowedHeaders: ['Content-Type', 'Authorization'],
         })
-
     )
     app.use((req: Request, res: Response, next: NextFunction) => {
         const userAgent = req.headers['user-agent']
@@ -29,8 +28,5 @@ const middleWare=(app:Application)=>{
     app.use(morgan('common'))
     app.use(express.urlencoded({extended:false}))
     app.use('/api',routes)
-
-
-
 }
 export default middleWare
