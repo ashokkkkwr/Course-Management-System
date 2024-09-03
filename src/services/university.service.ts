@@ -24,6 +24,14 @@ class UniversityService{
         }
       
     }
-
+    async getAllUniversity(){
+        try{
+            const find= await this.universityRepo.find()
+            console.log("🚀 ~ UniversityService ~ getAllUniversity ~ find:", find)
+            return find
+        }catch(error:any){
+            throw new Error(error.message)
+        }
+    }
 }
 export default new UniversityService()
