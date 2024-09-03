@@ -3,11 +3,9 @@ import { StatusCodes } from '../constant/statusCodes';
 class TestController{
     async test(req:Request,res:Response){
         try{
-            console.log('haha')
-            res.status(StatusCodes.SUCCESS).json('haha')
+            res.status(StatusCodes.SUCCESS).json('hehe')
         }catch(error){
         console.log("🚀 ~ TestController ~ test ~ error:", error)
-
         }
     }
 }

@@ -5,10 +5,17 @@ class UniversityController{
     async createUniversity(req:Request,res:Response){
         try{
            
-            res.status(StatusCodes.SUCCESS).json('haha')
+            // res.status(StatusCodes.SUCCESS).json('haha')
+            const body= req.body
+            console.log("🚀 ~ UniversityController ~ createUniversity ~ body:", body)
             const data = await universityService.createUniversity(req.body)
-        }catch(error){
-        console.log("🚀 ~ TestController ~ test ~ error:", error)
+            res.status(StatusCodes.SUCCESS).json({
+                data:data
+            })
+        }catch(error:any){
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+                data:error.message
+            })
         }
     }
 }

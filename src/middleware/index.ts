@@ -4,6 +4,7 @@ import {DotenvConfig} from '../config/env.config'
 import {StatusCodes} from '../constant/statusCodes'
 import routes from '../routes/index.route'
 import morgan from 'morgan'
+import bodyParser from 'body-parser'
 const middleWare=(app:Application)=>{
     console.log('')
     app.use(
@@ -25,6 +26,7 @@ const middleWare=(app:Application)=>{
           else res.status(StatusCodes.FORBIDDEN).send('Forbidden')
         }
       })
+    app.use(bodyParser.json())
     app.use(morgan('common'))
     app.use(express.urlencoded({extended:false}))
     app.use('/api',routes)

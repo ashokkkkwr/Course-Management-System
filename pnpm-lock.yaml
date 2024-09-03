@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      body-parser:
+        specifier: ^1.20.2
+        version: 1.20.2
       class-validator:
         specifier: ^0.14.1
         version: 0.14.1

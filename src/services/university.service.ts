@@ -10,14 +10,17 @@ class UniversityService{
         try{
             const code=data.code
             const exists= await this.universityRepo.findOne({where:{code:data.code}})
+            console.log("🚀 ~ UniversityService ~ createUniversity ~ exists:", exists)
             if(exists) throw new Error('University Already exists')
             const save=this.universityRepo.create({
                 name:data.name,
                 code:data.code
             })
+            await this.universityRepo.save(save)
+            console.log("🚀 ~ UniversityService ~ createUniversity ~ save:", save)
             return save
-        }catch(error){
-            throw new Error(`error`)
+        }catch(error:any){
+            throw new Error(error.message)
         }
       
     }
